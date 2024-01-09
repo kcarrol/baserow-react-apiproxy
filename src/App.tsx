@@ -27,7 +27,7 @@ function App() {
           <br />
           {item.Description}
           <br />
-          <a href={item.Website}>{item.Website}</a>
+          <a href={`http://${item.Website}`}>{item.Website}</a>
           <br />
           {item.Funnumbers}
         </div>
