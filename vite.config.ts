@@ -12,13 +12,13 @@ export default ({ mode }) => {
   server: {
     proxy: {
       '/api/baserow': {
-        target: 'https://api.baserow.io/api/database/rows/table/121195/?user_field_names=true',
+        target: 'https://api.baserow.io/api/database/rows/table/121195/',
         changeOrigin: true,
         secure: false,
         rewrite: (path) => path.replace(/^\/api\/baserow/, ''),
         configure: (proxy, _options) => {
           proxy.on('proxyReq', function(proxyReq, req, res, options) {
-            proxyReq.setHeader('lcu-subscription-key', `Token ${process.env.VITE_BASEROW_LCU_SUBSCRIPTION_ID}`);
+            proxyReq.setHeader('Authorization', `Token ${process.env.VITE_BASEROW_LCU_SUBSCRIPTION_ID}`);
           });
           proxy.on('error', (err, _req, _res) => {
             console.log('proxy error', err);

@@ -4,12 +4,12 @@ import axios from 'axios';
 function App() {
   const [post, setPost] = useState<any>(null);
 
+  const baserowApi = '/api/baserow'
+  const baserowQuery = '?user_field_names=true'
+  
   useEffect(() => {
     axios({
-      url: '/api/baserow',
-      headers: {
-        Authorization: `Token ${import.meta.env.VITE_BASEROW_LCU_SUBSCRIPTION_ID}`,
-      },
+      url: `${baserowApi}${baserowQuery}`,
     }).then((response) => {
       setPost(response.data);
     });
