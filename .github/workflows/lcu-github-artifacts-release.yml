@@ -1,4 +1,4 @@
-name: GuerrillaGorilla/baserow-react-apiproxy
+name: kcarrol/baserow-react-apiproxy
 
 on:
   push:
